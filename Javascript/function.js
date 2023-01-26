@@ -28,8 +28,8 @@ function sumNumberWithReturn(numA, numB) {
 // sumNumberWithParameter(10, 10);
 // sumNumberWithReturn(10, 10);
 
-console.log(sumNumberWithParameter(10, 10) + 5);
-console.log(sumNumberWithReturn(10, 10) + 5);
+// console.log(sumNumberWithParameter(10, 10) + 5);
+// console.log(sumNumberWithReturn(10, 10) + 5);
 
 //BRANCHING IF STATEMENT
 
@@ -64,5 +64,29 @@ function checkTemperature(temp) {
   }
 }
 
-checkTemperature(29);
-checkTemperature(31);
+// checkTemperature(29);
+// checkTemperature(31);
+
+function decreaseNumber(numberA, numberB) {
+  const decrease = numberA - numberB;
+  return decrease;
+}
+
+// const checkReturn = decreaseNumber(10, 5) + 10;
+// console.log(checkReturn);
+
+function checkNumber(number) {
+  if (number > 6) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkArray(arr) {
+  return arr;
+}
+
+// console.log(checkNumber(5));
+// console.log(checkNumber(7));
+// console.log(checkArray([10, 12, 13, 14, 15]));
