@@ -83,11 +83,24 @@ function ternaryTemperature(temperature) {
   return result;
 }
 
-console.log(ternaryTemperature(30));
+// console.log(ternaryTemperature(30));
+
+// gerbang logika AND dapat digunakan untuk menutup blok else atau else if pada ternary operator
+// bisa OR atau AND, tergantung peletakan kondisi
+// tapi, sebaiknya ternary operator melingkupi statemen if dan else
+function checkNumber(intNumber) {
+  // if (intNumber === 10) {
+  //   return "correct";
+  // }
+  const result = intNumber === 10 && "correct";
+  return result;
+}
+
+console.log(checkNumber(11));
 
 // BACKTIK AND LITERAL TEMPLATE
-let number = 20;
-console.log(`My name is ${number}`);
+// let number = 20;
+// console.log(`My name is ${number}`);
 
 //---- SWITCH CASE ----
 
@@ -140,7 +153,7 @@ function switchCasePlacementTernary(number) {
   return result;
 }
 
-switchCasePlacement(3);
-switchCasePlacement(4);
-console.log(switchCasePlacementTernary(3));
-console.log(switchCasePlacementTernary(4));
+// switchCasePlacement(3);
+// switchCasePlacement(4);
+// console.log(switchCasePlacementTernary(3));
+// console.log(switchCasePlacementTernary(4));
