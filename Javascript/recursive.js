@@ -46,3 +46,12 @@ function timeComplexitySolution() {
 
 timeComplexityFactorial();
 timeComplexitySolution();
+
+function funcA() {
+  //your code here
+}
+
+function funcB() {
+  funcA();
+  //your code here
+}
