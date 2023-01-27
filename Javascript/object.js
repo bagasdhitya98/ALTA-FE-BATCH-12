@@ -85,8 +85,10 @@ let accessHobby = personal.hobbies[1]; // mengakses value array di dalam nested 
 
 // -- MENAMBAHKAN NESTED OBJECT
 personal.address["country"] = "US"; // menambahkan value object di dalam nested object
-personal.hobbies.push("Fishing"); // menambahkan value array di dalam nested object
+personal.hobbies.push("Fishing"); // menambahkan value array di dalam nested object dari belakang element
+personal.hobbies.unshift("Playing basketball"); // menambahkan value array di dalam nested object dari depan element
 // console.log("result after added address", personal.address);
+// console.log("result after added hobbies : ", personal.hobbies);
 // console.log("result after added hobbies : ", personal.hobbies);
 
 personal.address["city"] = "Miami, FL"; // mengupdate value object di dalam nested object
@@ -113,6 +115,12 @@ for (let key in motorcycle) {
 
 // -- CLONING OBJECT --
 let marvel = {
+  character: "Ironman",
+  name: "Tony Stark",
+  company: "Stark Industries",
+};
+
+let marvel2 = {
   character: "Ironman",
   name: "Tony Stark",
   company: "Stark Industries",
