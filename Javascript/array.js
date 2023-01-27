@@ -59,7 +59,7 @@ let sliceOfSample = sample.slice(0, 4);
 let characters = ["Captain America", "Ironman", "Black Panther", "Dr Strange"];
 
 for (let i = 0; i < characters.length; i++) {
-  console.log(characters[i]);
+  //   console.log(characters[i]);
 }
 
 // yang menjadi acuan for of adalah value nya
@@ -71,3 +71,34 @@ for (let hero of characters) {
 for (let key in characters) {
   //   console.log(characters[key]);
 }
+
+// -- FOREACH && MAP
+let motorbike = ["Yamaha", "Honda", "Vespa", "Viar"];
+let motorForEach = motorbike.forEach((index, item) => {
+  //   console.log(index);
+});
+
+let motorMap = motorbike.map((item) => {
+  //   console.log(item);
+});
+
+let randomNested = [
+  {
+    name: "John",
+    id: 10,
+  },
+  {
+    name: "Doe",
+    id: 15,
+  },
+  {
+    name: "Jonas",
+    id: 20,
+  },
+];
+
+let randomMap = randomNested.map((data, index) => {
+  //   console.log(data.id);
+  //   console.log(data.name);
+  //   console.log(index);
+});
