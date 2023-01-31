@@ -108,3 +108,50 @@
 // let secondChar: string = 'Script'
 
 // console.log(firstChar+secondChar)
+
+// --- ANY TIPE DATA ---
+// -- any merupakan tipe data yang bisa diisi oleh berbagai macam tipe data lainnya (soundness)
+// let randomVal : any
+// randomVal = "alterra academy"
+// console.log(randomVal)
+// randomVal = 2023
+// console.log(randomVal)
+// randomVal = true
+// console.log(randomVal)
+// randomVal = [10, 11, 12, 13, 14]
+// console.log(randomVal)
+
+// --- NULL & UNDEFINED ---
+// let randomVal_A;
+// let randomVal_B = null
+// let randomVal_C = randomVal_A == randomVal_B // hanya membandingkan value
+// let randomVal_D = randomVal_A === randomVal_B // membandingkan value dan tipe data
+
+// console.log(randomVal_A) // undefined
+// console.log(randomVal_B) // null
+// console.log(randomVal_C) // true
+// console.log(randomVal_D) // false
+
+// --- ENUM DATA TYPE ---
+// -- jika salah satu data di dalam enum nomornya diganti, maka nomor belakang akan menyesuaikan (auto-generated)
+enum WeekDay {monday, tuesday, wednesday , thursday, friday, saturday, sunday}
+
+let dayX : WeekDay = WeekDay.monday // untuk mendapatkan index dari enum
+let dayY : string = WeekDay[0] // untuk mendapatkan value dari enum
+
+// console.log(dayX) 
+// console.log(dayY)
+
+enum Color {red = 1, green, blue}
+let colorX: Color = Color.blue
+
+// console.log(colorX)
+
+enum Random {a = -1, b, c, d}
+
+let randX : Random = Random.a
+let randY : string = Random[0]
+
+console.log(randX) 
+console.log(randY)
+
