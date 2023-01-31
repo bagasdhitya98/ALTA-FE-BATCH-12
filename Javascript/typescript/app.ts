@@ -104,7 +104,7 @@
 // console.log(directSum)
 
 // --- STRING TYPE DATA ---
-let firstChar: string = 'Type'
-let secondChar: string = 'Script'
+// let firstChar: string = 'Type'
+// let secondChar: string = 'Script'
 
-console.log(firstChar+secondChar)
+// console.log(firstChar+secondChar)
