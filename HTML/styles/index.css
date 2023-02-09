@@ -24,6 +24,11 @@
   height: 250px;
 }
 
+.container-5 {
+  width: 80%;
+  height: 250px;
+}
+
 .content-1 {
   color: red;
 }
@@ -55,4 +60,16 @@
 
 .animation-visited:visited {
   color: green;
+}
+
+.display-content-1 {
+  display: block;
+}
+
+.display-content-2 {
+  display: inline-block;
+}
+
+.display-content-3 {
+  display: none;
 }

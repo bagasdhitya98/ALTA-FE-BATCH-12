@@ -1,0 +1,51 @@
+.content-first {
+  width: 100%;
+  height: 50px;
+  background-color: red;
+}
+.content-second {
+  width: 100%;
+  height: 50px;
+  background-color: orange;
+}
+.content-third {
+  width: 100%;
+  height: 50px;
+  background-color: yellow;
+}
+
+.content-four {
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+  .content-first {
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+  }
+  .content-second {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+  }
+  .content-four {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .content-first {
+    width: 100%;
+    height: 50px;
+    background-color: green;
+  }
+  .content-second {
+    width: 100%;
+    height: 50px;
+    background-color: purple;
+  }
+  .content-four {
+    font-size: 36px;
+  }
+}
