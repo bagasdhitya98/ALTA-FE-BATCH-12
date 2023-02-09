@@ -1,0 +1,58 @@
+.container-1 {
+  padding: 25px;
+  margin: 25px;
+  width: 1200px;
+  height: 50px;
+  background-color: yellow;
+}
+
+.container-2 {
+  padding: 25px;
+  margin: 25px;
+  width: 80%;
+  height: 50px;
+  background-color: orange;
+}
+
+.container-3 {
+  width: 80%;
+  height: 250px;
+}
+
+.container-4 {
+  width: 80%;
+  height: 250px;
+}
+
+.content-1 {
+  color: red;
+}
+
+.content-2 {
+  color: green;
+}
+
+.content-3 {
+  color: blue;
+}
+
+.logo-image {
+  background-image: url("../assets/cow.jpeg");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 450px;
+  height: 200px;
+}
+
+.animation-hover:hover {
+  color: red;
+}
+
+.animation-active:active {
+  color: blue;
+}
+
+.animation-visited:visited {
+  color: green;
+}

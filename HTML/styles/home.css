@@ -1,0 +1,33 @@
+.navbar {
+  background-color: brown;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  display: flex;
+  position: fixed;
+}
+
+.navbar a {
+  margin-right: 20px;
+  color: white;
+}
+
+.navbar a:link {
+  color: orange;
+}
+
+.navbar a:hover {
+  color: pink;
+}
+
+.navbar a:active {
+  color: yellow;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}

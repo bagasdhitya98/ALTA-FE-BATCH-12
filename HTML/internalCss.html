@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Example of CSS</title>
+    <title>Example of Internal CSS</title>
     <style>
       /* menggunakan id sebagai selector */
       #content-id {
@@ -30,6 +30,13 @@
         font-family: "Poppins-Regular";
         font-size: 24px;
       }
+
+      /* Margin dan padding bisa diatur dari right, left, top, atau bottom */
+      .container {
+        margin: 25px;
+        padding: 25px;
+        color: blue;
+      }
     </style>
   </head>
   <body>
@@ -41,5 +48,8 @@
       <h3>CSS</h3>
     </div>
     <div class="customize-font">Font Poppins Regular</div>
+    <div class="container">
+      <h1>Content</h1>
+    </div>
   </body>
 </html>
