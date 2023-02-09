@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example of CSS</title>
+    <style>
+      /* menggunakan id sebagai selector */
+      #content-id {
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+      }
+      /* menggunakan class sebagai selector */
+      .content-class {
+        color: orange;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      /* Grouping CSS */
+      h1,
+      h2,
+      h3 {
+        color: blue;
+      }
+      /* Import Customize Font */
+      @font-face {
+        font-family: "Poppins-Regular";
+        src: url("../HTML/fonts/Poppins/Poppins-Regular.ttf");
+      }
+      .customize-font {
+        font-family: "Poppins-Regular";
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-class">Alterra Academy using Class</div>
+    <div id="content-id">Alterra Academy using Id</div>
+    <div>
+      <h1>Javascript</h1>
+      <h2>HTML</h2>
+      <h3>CSS</h3>
+    </div>
+    <div class="customize-font">Font Poppins Regular</div>
+  </body>
+</html>

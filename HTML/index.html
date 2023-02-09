@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Alterra Academy</title>
+  </head>
+  <body>
+    <!-- Section Heading and Paragraph -->
+    <div>
+      <h1>This is HTML Content</h1>
+      <h2>This is HTML Content</h2>
+      <h3>This is HTML Content</h3>
+      <h4>This is HTML Content</h4>
+      <h5>This is HTML Content</h5>
+      <h6>This is HTML Content</h6>
+      <p>Paragraph</p>
+    </div>
+    <!-- Styling Paragraph -->
+    <div>
+      <strong>Membuat tulisan teks menjadi lebih tebal</strong>
+      <br />
+      <em>Membuat tulisan teks menjadi miring atau italic</em>
+      <br />
+      <s>Membuat tulisan teks menjadi ada garis tercoret</s>
+      <br />
+      <a href="https://academy.alterra.id/" target="_blank">Website Alterra</a>
+      <!-- target = blank -> untuk membuka tab baru ketika tautan diklik user -->
+    </div>
+    <!-- Show Image -->
+    <div>
+      <!-- mengambil gambar menggunakan CDN (Content Delivery Network)-->
+      <img
+      src=https://academy.alterra.id/blog/wp-content/uploads/2021/06/cropped-cropped-Alterra-Academy-logo.png>
+      <!-- mengambil gambar dari local komputer -->
+      <img src="assets/alta.png" />
+    </div>
+    <!-- Ordered List -->
+    <div>
+      <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ol>
+      <ol type="A">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ol>
+      <ol type="a">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ol>
+      <ol type="I">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ol>
+      <ol type="i">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ol>
+    </div>
+    <!-- Unordered List -->
+    <div>
+      <ul>
+        <li>React</li>
+        <li>Angular</li>
+        <li>Vue</li>
+      </ul>
+      <ul type="square">
+        <li>React</li>
+        <li>Angular</li>
+        <li>Vue</li>
+      </ul>
+      <ul type="circle">
+        <li>React</li>
+        <li>Angular</li>
+        <li>Vue</li>
+      </ul>
+      <ul type="none">
+        <li>React</li>
+        <li>Angular</li>
+        <li>Vue</li>
+      </ul>
+      <ul type="circle">
+        <li>Javascript</li>
+        <li>
+          Framework dari Javascript :
+          <ul type="square">
+            <li>React</li>
+            <li>Angular</li>
+            <li>Vue</li>
+          </ul>
+        </li>
+        <li>Golang</li>
+        <li>
+          Framework dari Golang :
+          <ul type="square">
+            <li>GORM</li>
+            <li>Echo</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- Table -->
+    <div>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Company 1</td>
+          <td>Arthur Morgan</td>
+          <td>United States</td>
+        </tr>
+        <tr>
+          <td>Company 2</td>
+          <td>Thomas Shelby</td>
+          <td>United Kingdom</td>
+        </tr>
+        <tr>
+          <td>Company 3</td>
+          <td>Nacho Libre</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+    </div>
+</br>
+    <!-- Form Tag -->
+    <div>
+      <form>
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div>
+            <label for="full-name">Full Name</label>
+            <input id="full-name" placeholder="Type your full name here ..." />
+          </div>
+          <div>
+            <label for="email-address">Email Address</label>
+            <input id="email-address" placeholder="Type your email here ...">
+          </div>
+          <div>
+            <label for="gender">Select Gender</label>
+            <input id="radio-male" type="radio" placeholder="Male">
+            <input id="radio-female" type="radio" placeholder="Female">
+          </div>
+          <div>
+            <label for="upload-file">Upload File</label>
+            <input id="upload-file" type="file" placeholder="Upload File here ...">
+          </div>
+          <div>
+            <label for="slider">Slider</label>
+            <input id="slider" type="range" placeholder="Range">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Type your password here ...">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</br>
+    <div>
+        <form>
+            <fieldset>
+                <legend>Payment Information</legend>
+                <div>
+                    <label for="credit-number">Credit Number</label>
+                    <input id="credit-number" placeholder="Type your credit number here ...">
+                </div>
+                <div>
+                    <label for="expired-date">Expired Date</label>
+                    <input id="credit-number" type="date">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!-- Embedd Youtube Video -->
+    <div>
+        <iframe
+        width="420"
+        height="345"
+        src="https://www.youtube.com/watch?v=Ktu843qdrWE" ></iframe>
+    </div>
+  </body>
+</html>
+
+<!-- NOTES : -->
+<!-- <section> -> merupakan hierarki teratas yang berisi dari sekumpulan <div> -->
+<!-- <div -> merupakan tag yang berisi dari sekumpulan elemen yang lebih kecil, seperti h1, h2, p, img, bahkan div itu sendiri-->
