@@ -1,0 +1,34 @@
+.content-1 {
+  height: 60px;
+  background-color: orange;
+}
+
+.content-2 {
+  height: 60px;
+  background-color: red;
+}
+
+.content-3 {
+  height: 60px;
+  background-color: yellow;
+}
+
+.content-4 {
+  height: 60px;
+  background-color: green;
+}
+
+.content-5 {
+  height: 60px;
+  background-color: blue;
+}
+
+.content-6 {
+  height: 60px;
+  background-color: purple;
+}
+
+.content-image {
+  height: 50px;
+  background-color: green;
+}
