@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
-class Navbar extends Component {
+type ModeType = {
+  handleType: React.MouseEventHandler;
+};
+
+class Navbar extends Component<ModeType> {
   render() {
+    const { handleType } = this.props;
+
     const image =
       "https://academy.alterra.id/blog/wp-content/uploads/2021/06/cropped-cropped-Alterra-Academy-logo.png";
 
@@ -13,6 +19,14 @@ class Navbar extends Component {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
+            <li>
+              <button
+                onClick={handleType}
+                className="rounded-md w-30 h-10 text-white"
+              >
+                Dark Mode
+              </button>
+            </li>
             <li>
               <a href="">Home</a>
             </li>

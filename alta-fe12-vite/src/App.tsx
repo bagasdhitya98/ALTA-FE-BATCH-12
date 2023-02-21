@@ -12,6 +12,7 @@ interface State {
   color: string;
   isOpen: boolean;
   isModal: boolean;
+  isDark: boolean;
 }
 
 class App extends Component<State> {
@@ -20,6 +21,7 @@ class App extends Component<State> {
     color: "",
     isOpen: false,
     isModal: false,
+    isDark: false,
   };
 
   increment = () => {
@@ -39,11 +41,11 @@ class App extends Component<State> {
   };
 
   render() {
-    const { count, color, isOpen, isModal } = this.state;
+    const { count, color, isOpen, isModal, isDark } = this.state;
     console.log(fashion);
     return (
-      <div className="w-screen h-screen">
-        <Navbar />
+      <div className={`w-screen h-full ${isDark ? `bg-black` : `bg-white`}`}>
+        <Navbar handleType={() => this.setState({ isDark: true })} />
         <div className="my-10">
           <button
             className="w-20 h-10 bg-blue-500 text-white font-semibold"
