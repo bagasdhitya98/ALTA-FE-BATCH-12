@@ -40,7 +40,7 @@ class App extends Component<DataState> {
     return (
       <div className={`w-screen h-screen bg-white`}>
         <Navbar handleType={() => this.setState({ isDark: true })} />
-        <div className="flex justify-center my-5">
+        <div className="flex justify-center my-5 space-x-7 mx-10">
           <button
             className="bg-white text-black shadow-md"
             onClick={() => this.handleNews("id", "business")}
