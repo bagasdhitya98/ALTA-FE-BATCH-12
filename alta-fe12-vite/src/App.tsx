@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 
-import axios from "axios";
-import Modal from "./components/Modal";
+// import axios from "axios";
+import api from "./services/api";
 
 interface StoreState {
   data: [];
@@ -15,21 +15,65 @@ export class App extends Component {
     data: [],
   };
 
-  getAllProduct() {
-    axios
-      .get(`https://fakestoreapi.com/products`)
+  // getAllProduct() {
+  //   axios
+  //     .get(`https://fakestoreapi.com/products`)
+  //     .then((response) => {
+  //       console.log("data: ", response.data);
+  //       this.setState({ data: response.data });
+  //     })
+  //     .catch((error) => {
+  //       console.log("error: ", error);
+  //     });
+  // }
+
+  // getProduct(id: any) {
+  //   axios
+  //     .get(`https://fakestoreapi.com/products/${id}`)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  // addProduct() {
+  //   axios
+  //     .post(
+  //       `https://fakestoreapi.com/products`,
+  //       {},
+  //       {
+  //         data: {
+  //           title: "test product",
+  //           price: 13.5,
+  //           description: "lorem ipsum set",
+  //           image: "https://i.pravatar.cc",
+  //           category: "electronic",
+  //         },
+  //       }
+  //     )
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  async getAllProducts() {
+    await api
+      .allProducts()
       .then((response) => {
-        console.log("data: ", response.data);
+        console.log(response.data);
         this.setState({ data: response.data });
       })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
+      .catch((error) => console.log(error));
   }
 
-  getProduct(id: any) {
-    axios
-      .get(`https://fakestoreapi.com/products/${id}`)
+  async getProduct(item: any) {
+    await api
+      .getProduct(item)
       .then((response) => {
         console.log(response.data);
       })
@@ -38,20 +82,13 @@ export class App extends Component {
       });
   }
 
-  addProduct() {
-    axios
-      .post(
-        `https://fakestoreapi.com/products`,
-        {},
-        {
-          data: {
-            title: "test product",
-            price: 13.5,
-            description: "lorem ipsum set",
-            image: "https://i.pravatar.cc",
-            category: "electronic",
-          },
-        }
+  async addProduct() {
+    await api
+      .addProduct(
+        "Clothes",
+        "IDR 50,000",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI6-81i0Uk-5ldURjNpDwx_QgiF6hfl6YaXQ&usqp=CAU",
+        "sweater"
       )
       .then((response) => {
         console.log(response.data);
@@ -62,7 +99,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.getAllProduct();
+    this.getAllProducts();
   }
 
   render() {
