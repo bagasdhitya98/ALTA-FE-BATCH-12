@@ -13,6 +13,7 @@ interface State {
   isOpen: boolean;
   isModal: boolean;
   isDark: boolean;
+  data: any;
 }
 
 class App extends Component<State> {
@@ -22,27 +23,33 @@ class App extends Component<State> {
     isOpen: false,
     isModal: false,
     isDark: false,
+    data: "",
   };
 
-  increment = () => {
+  increment() {
     this.setState({ count: this.state.count + 1 });
-  };
+  }
 
-  decrement = () => {
+  decrement() {
     this.setState({ count: this.state.count - 1 });
-  };
+  }
 
-  showModal = () => {
+  showModal() {
     this.setState({ isOpen: true });
-  };
+  }
 
-  closeModal = () => {
+  closeModal() {
     this.setState({ isOpen: false });
-  };
+  }
+
+  onHandleDetail(item: any) {
+    this.setState({ data: item.description });
+    this.setState({ isModal: true });
+  }
 
   render() {
-    const { count, color, isOpen, isModal, isDark } = this.state;
-    console.log(fashion);
+    const { count, color, isOpen, isModal, isDark, data } = this.state;
+
     return (
       <div className={`w-screen h-full ${isDark ? `bg-black` : `bg-white`}`}>
         <Navbar handleType={() => this.setState({ isDark: true })} />
@@ -53,13 +60,6 @@ class App extends Component<State> {
           >
             Trigger Modal
           </button>
-          <Modal
-            id="modal"
-            handleModal={isModal}
-            handleClose={() => this.setState({ isModal: false })}
-          >
-            <h1>Modal Opened</h1>
-          </Modal>
         </div>
         <div className="space-x-7 flex flex-row">
           {fashion.map((item: any) => {
@@ -69,14 +69,24 @@ class App extends Component<State> {
                 title={item.title}
                 description={item.description}
                 image={item.image}
+                handleDetail={() => this.onHandleDetail(item)}
               />
             );
           })}
         </div>
         <div>
+          <Modal
+            id="modal"
+            handleModal={isModal}
+            handleClose={() => this.setState({ isModal: false })}
+          >
+            <p>{data}</p>
+          </Modal>
+        </div>
+        <div>
           <button
             className="w-40 h-10 bg-alta-amber text-white font-semibold"
-            onClick={this.showModal}
+            onClick={() => this.showModal()}
           >
             Open Modal!
           </button>
@@ -84,7 +94,7 @@ class App extends Component<State> {
         {isOpen ? (
           <div className="w-60 h-40 bg-white rounded-md shadow-xl">
             <button
-              onClick={this.closeModal}
+              onClick={() => this.closeModal()}
               className="w-20 h-10 bg-red-500 text-white"
             >
               Close Modal
@@ -100,13 +110,13 @@ class App extends Component<State> {
         <div className="flex flex-row">
           <button
             className="w-40 h-20 bg-alta-blue text-white font-semibold"
-            onClick={this.increment}
+            onClick={() => this.increment()}
           >
             Increment
           </button>
           <button
             className="w-40 h-20 bg-alta-amber text-white font-semibold"
-            onClick={this.decrement}
+            onClick={() => this.decrement()}
           >
             Decrement
           </button>
