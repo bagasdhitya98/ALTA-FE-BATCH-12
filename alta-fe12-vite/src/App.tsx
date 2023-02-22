@@ -62,9 +62,10 @@ class App extends Component<State> {
           </button>
         </div>
         <div className="space-x-7 flex flex-row">
-          {fashion.map((item: any) => {
+          {fashion.map((item: any, index) => {
             return (
               <Card
+                key={index}
                 id={item.id}
                 title={item.title}
                 description={item.description}
