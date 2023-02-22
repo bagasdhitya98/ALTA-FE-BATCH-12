@@ -15,7 +15,7 @@ class Navbar extends Component<ModeType> {
       <div className="navbar bg-white shadow-md z-10 top-0 sticky">
         <div className="flex-1 ml-7">
           <img src={image} width={90} height={90} />
-          <a className="text-black ml-10 font-semibold">Dashboard</a>
+          <a className="text-black ml-10 font-semibold">ALTA NEWS</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">

@@ -13,7 +13,7 @@ class Card extends Component<Person> {
     const { id, title, description, image, handleDetail } = this.props;
 
     return (
-      <div id={id} className="card w-96 bg-white shadow-xl">
+      <div id={id} className="card w-96 bg-white shadow-xl position-absolute">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>

@@ -40,7 +40,7 @@ class App extends Component<DataState> {
     return (
       <div className={`w-screen h-screen bg-white`}>
         <Navbar handleType={() => this.setState({ isDark: true })} />
-        <div>
+        <div className="flex justify-center my-5">
           <button
             className="bg-white text-black shadow-md"
             onClick={() => this.handleNews("id", "business")}
@@ -60,16 +60,18 @@ class App extends Component<DataState> {
             Politics
           </button>
         </div>
-        <div className="m-10">
+        <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
           {data.map((item: any, index) => {
             return (
-              <Card
-                key={index}
-                id={item.source.id}
-                title={item.title}
-                description={item.description}
-                image={item.urlToImage}
-              />
+              <div className="my-5">
+                <Card
+                  key={index}
+                  id={item.source.id}
+                  title={item.title}
+                  description={item.description}
+                  image={item.urlToImage}
+                />
+              </div>
             );
           })}
         </div>
