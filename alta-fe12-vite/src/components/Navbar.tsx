@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 type ModeType = {
-  buttonType: boolean;
-  handleType: React.MouseEventHandler;
+  buttonType?: boolean;
+  handleType?: React.MouseEventHandler;
 };
 
 class Navbar extends Component<ModeType> {

@@ -15,7 +15,7 @@ class Card extends Component<Person> {
     return (
       <div id={id} className="card w-96 bg-white shadow-xl position-absolute">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img src={image} alt="Shoes" width={100} height={100} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>

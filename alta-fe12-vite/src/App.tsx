@@ -4,81 +4,92 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 
 import axios from "axios";
+import Modal from "./components/Modal";
 
-interface DataState {
+interface StoreState {
   data: [];
-  darkMode: boolean;
 }
 
-class App extends Component<DataState> {
+export class App extends Component {
   state = {
     data: [],
-    darkMode: false,
   };
 
-  async handleNews(country?: string, category?: string) {
+  getAllProduct() {
     axios
-      .get(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${
-          import.meta.env.VITE_NEWS_KEY
-        }`
-      )
+      .get(`https://fakestoreapi.com/products`)
       .then((response) => {
-        console.log("data : ", response.data.articles);
-        this.setState({ data: response.data.articles });
+        console.log("data: ", response.data);
+        this.setState({ data: response.data });
       })
       .catch((error) => {
-        console.log("error : ", error);
+        console.log("error: ", error);
+      });
+  }
+
+  getProduct(id: any) {
+    axios
+      .get(`https://fakestoreapi.com/products/${id}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  addProduct() {
+    axios
+      .post(
+        `https://fakestoreapi.com/products`,
+        {},
+        {
+          data: {
+            title: "test product",
+            price: 13.5,
+            description: "lorem ipsum set",
+            image: "https://i.pravatar.cc",
+            category: "electronic",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   componentDidMount() {
-    this.handleNews();
+    this.getAllProduct();
   }
 
   render() {
-    const { data, darkMode } = this.state;
+    const { data } = this.state;
 
     return (
-      <div
-        className={`w-screen h-screen ${
-          darkMode ? "bg-black" : !darkMode && "bg-white"
-        }`}
-      >
-        <Navbar
-          buttonType={!darkMode}
-          handleType={() => this.setState({ darkMode: !darkMode })}
-        />
-        <div className="flex justify-center my-5 space-x-7 mx-10">
+      <div className={`w-screen h-screen bg-white`}>
+        <Navbar />
+        <div>
           <button
-            className="bg-white text-black shadow-md"
-            onClick={() => this.handleNews("id", "business")}
+            className="w-40 h-10 bg-blue-500 text-white"
+            onClick={() => this.addProduct()}
           >
-            Business
-          </button>
-          <button
-            className="bg-white text-black shadow-md"
-            onClick={() => this.handleNews("id", "entertainment")}
-          >
-            Entertainment
-          </button>
-          <button
-            className="bg-white text-black shadow-md"
-            onClick={() => this.handleNews("id", "politics")}
-          >
-            Politics
+            Post Product
           </button>
         </div>
         <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
           {data.map((item: any, index) => {
             return (
-              <div className="my-5">
+              <div className="my-5" key={index}>
                 <Card
                   key={index}
-                  id={item.source.id}
+                  id={item.id}
                   title={item.title}
                   description={item.description}
-                  image={item.urlToImage}
+                  image={item.image}
+                  handleDetail={() => this.getProduct(item.id)}
                 />
               </div>
             );
@@ -90,6 +101,94 @@ class App extends Component<DataState> {
 }
 
 export default App;
+
+// --- EXAMPLE : NEWS API
+
+// interface DataState {
+//   data: [];
+//   darkMode: boolean;
+// }
+
+// class App extends Component<DataState> {
+//   state = {
+//     data: [],
+//     darkMode: false,
+//   };
+
+//   async handleNews(country?: string, category?: string) {
+//     axios
+//       .get(
+//         `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${
+//           import.meta.env.VITE_NEWS_KEY
+//         }`
+//       )
+//       .then((response) => {
+//         console.log("data : ", response.data.articles);
+//         this.setState({ data: response.data.articles });
+//       })
+//       .catch((error) => {
+//         console.log("error : ", error);
+//       });
+//   }
+
+//   componentDidMount() {
+//     this.handleNews();
+//   }
+
+//   render() {
+//     const { data, darkMode } = this.state;
+
+//     return (
+//       <div
+//         className={`w-screen h-screen ${
+//           darkMode ? "bg-black" : !darkMode && "bg-white"
+//         }`}
+//       >
+//         <Navbar
+//           buttonType={!darkMode}
+//           handleType={() => this.setState({ darkMode: !darkMode })}
+//         />
+//         <div className="flex justify-center my-5 space-x-7 mx-10">
+//           <button
+//             className="bg-white text-black shadow-md"
+//             onClick={() => this.handleNews("id", "business")}
+//           >
+//             Business
+//           </button>
+//           <button
+//             className="bg-white text-black shadow-md"
+//             onClick={() => this.handleNews("id", "entertainment")}
+//           >
+//             Entertainment
+//           </button>
+//           <button
+//             className="bg-white text-black shadow-md"
+//             onClick={() => this.handleNews("id", "politics")}
+//           >
+//             Politics
+//           </button>
+//         </div>
+//         <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
+//           {data.map((item: any, index) => {
+//             return (
+//               <div className="my-5">
+//                 <Card
+//                   key={index}
+//                   id={item.source.id}
+//                   title={item.title}
+//                   description={item.description}
+//                   image={item.urlToImage}
+//                 />
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 // --- LIFE CYCLE CLASS COMPONENT ---
 

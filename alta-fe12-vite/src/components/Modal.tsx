@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 interface Props {
   id: string;
-  handleModal: boolean;
-  handleClose: React.MouseEventHandler;
+  handleModal?: boolean;
+  handleClose?: React.MouseEventHandler;
   children?: React.ReactNode;
 }
 
