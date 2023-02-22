@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
 type ModeType = {
+  buttonType: boolean;
   handleType: React.MouseEventHandler;
 };
 
 class Navbar extends Component<ModeType> {
   render() {
-    const { handleType } = this.props;
+    const { handleType, buttonType } = this.props;
 
     const image =
       "https://academy.alterra.id/blog/wp-content/uploads/2021/06/cropped-cropped-Alterra-Academy-logo.png";
@@ -20,12 +21,21 @@ class Navbar extends Component<ModeType> {
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <button
-                onClick={handleType}
-                className="rounded-md w-30 h-10 text-white"
-              >
-                Dark Mode
-              </button>
+              {buttonType === true ? (
+                <button
+                  onClick={handleType}
+                  className="rounded-md w-30 h-10 bg-dark text-white focus:bg-black hover:bg-black"
+                >
+                  Dark Mode
+                </button>
+              ) : (
+                <button
+                  onClick={handleType}
+                  className="rounded-md w-30 h-10 bg-white text-black focus:bg-white hover:bg-white"
+                >
+                  White Mode
+                </button>
+              )}
             </li>
             <li>
               <a href="">Home</a>

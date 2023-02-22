@@ -7,11 +7,13 @@ import axios from "axios";
 
 interface DataState {
   data: [];
+  darkMode: boolean;
 }
 
 class App extends Component<DataState> {
   state = {
     data: [],
+    darkMode: false,
   };
 
   async handleNews(country?: string, category?: string) {
@@ -35,11 +37,18 @@ class App extends Component<DataState> {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, darkMode } = this.state;
 
     return (
-      <div className={`w-screen h-screen bg-white`}>
-        <Navbar handleType={() => this.setState({ isDark: true })} />
+      <div
+        className={`w-screen h-screen ${
+          darkMode ? "bg-black" : !darkMode && "bg-white"
+        }`}
+      >
+        <Navbar
+          buttonType={!darkMode}
+          handleType={() => this.setState({ darkMode: !darkMode })}
+        />
         <div className="flex justify-center my-5 space-x-7 mx-10">
           <button
             className="bg-white text-black shadow-md"
