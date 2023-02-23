@@ -11,6 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />} />
+          <Route path="/home/:username" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
