@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Register from "./pages/register";
+import Login from "./pages/login";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/home/:username" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

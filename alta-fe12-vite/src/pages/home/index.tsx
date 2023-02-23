@@ -12,8 +12,6 @@ class Home extends Component<HomeProps> {
   render() {
     const { location } = this.props;
 
-    console.log("loc ", location.state.username);
-
     return (
       <Layout>
         <Navbar name={location?.state?.username} />
