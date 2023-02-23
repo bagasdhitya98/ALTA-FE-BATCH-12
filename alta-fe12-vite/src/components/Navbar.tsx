@@ -29,7 +29,9 @@ class Navbar extends Component<ModeType> {
               <a href="">Experience</a>
             </li>
             <li>
-              <p>{name}</p>
+              <p>
+                {name ? `Hi, Good Evening ${name}` : `You're not logged in`}
+              </p>
             </li>
           </ul>
         </div>
