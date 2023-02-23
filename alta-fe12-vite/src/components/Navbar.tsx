@@ -3,13 +3,12 @@ import React, { Component } from "react";
 type ModeType = {
   buttonType?: boolean;
   handleType?: React.MouseEventHandler;
-  previousPage?: React.MouseEventHandler;
-  nextPage?: React.MouseEventHandler;
+  name?: string;
 };
 
 class Navbar extends Component<ModeType> {
   render() {
-    const { handleType, buttonType, previousPage, nextPage } = this.props;
+    const { handleType, buttonType, name } = this.props;
 
     const image =
       "https://academy.alterra.id/blog/wp-content/uploads/2021/06/cropped-cropped-Alterra-Academy-logo.png";
@@ -22,14 +21,6 @@ class Navbar extends Component<ModeType> {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
-            <li>
-              <button className="bg-white text-black" onClick={previousPage}>
-                Previous Page
-              </button>
-              <button className="bg-white text-black" onClick={nextPage}>
-                Next Page
-              </button>
-            </li>
             <li>
               {buttonType === true ? (
                 <button
@@ -55,6 +46,9 @@ class Navbar extends Component<ModeType> {
             </li>
             <li>
               <a href="">Experience</a>
+            </li>
+            <li>
+              <p>{name}</p>
             </li>
           </ul>
         </div>

@@ -1,10 +1,23 @@
 import React, { Component } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Card from "./components/Card";
+import Home from "./pages/home";
+import Contact from "./pages/contact";
 
-import axios from "axios";
-import api from "./services/api";
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App;
 
 // ---- EXAMPLE OF PAGINATION
 
