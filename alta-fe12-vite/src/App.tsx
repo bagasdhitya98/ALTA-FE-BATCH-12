@@ -3,13 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home";
 import Contact from "./pages/contact";
+import Register from "./pages/register";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
