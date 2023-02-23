@@ -3,141 +3,213 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 
-// import axios from "axios";
+import axios from "axios";
 import api from "./services/api";
 
-interface StoreState {
-  data: [];
-}
+// ---- EXAMPLE OF PAGINATION
 
-export class App extends Component {
-  state = {
-    data: [],
-  };
+// interface MovieState {
+//   movies: [];
+//   count: number;
+// }
 
-  // getAllProduct() {
-  //   axios
-  //     .get(`https://fakestoreapi.com/products`)
-  //     .then((response) => {
-  //       console.log("data: ", response.data);
-  //       this.setState({ data: response.data });
-  //     })
-  //     .catch((error) => {
-  //       console.log("error: ", error);
-  //     });
-  // }
+// class App extends Component<MovieState> {
+//   state = {
+//     movies: [],
+//     count: 1,
+//   };
 
-  // getProduct(id: any) {
-  //   axios
-  //     .get(`https://fakestoreapi.com/products/${id}`)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+//   handleTrendingMovies(page: number) {
+//     axios
+//       .get(
+//         `https://api.themoviedb.org/3/movie/now_playing?api_key=f297d44c25022cf9a12c2b75b9059c2d&language=en-US&page=${page.toString()}`
+//       )
+//       .then((response) => {
+//         this.setState({ movies: response.data.results });
+//         console.log(response.data.results);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }
 
-  // addProduct() {
-  //   axios
-  //     .post(
-  //       `https://fakestoreapi.com/products`,
-  //       {},
-  //       {
-  //         data: {
-  //           title: "test product",
-  //           price: 13.5,
-  //           description: "lorem ipsum set",
-  //           image: "https://i.pravatar.cc",
-  //           category: "electronic",
-  //         },
-  //       }
-  //     )
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+//   nextPage() {
+//     this.setState({ count: this.state.count + 1 });
+//     this.handleTrendingMovies(this.state.count);
+//   }
 
-  async getAllProducts() {
-    await api
-      .allProducts()
-      .then((response) => {
-        console.log(response.data);
-        this.setState({ data: response.data });
-      })
-      .catch((error) => console.log(error));
-  }
+//   previousPage() {
+//     this.setState({ count: this.state.count - 1 });
+//     this.handleTrendingMovies(this.state.count);
+//   }
 
-  async getProduct(item: any) {
-    await api
-      .getProduct(item)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+//   render() {
+//     const { movies } = this.state;
 
-  async addProduct() {
-    await api
-      .addProduct(
-        "Clothes",
-        "IDR 50,000",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI6-81i0Uk-5ldURjNpDwx_QgiF6hfl6YaXQ&usqp=CAU",
-        "sweater"
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+//     return (
+//       <div className={`w-screen h-screen bg-white`}>
+//         <Navbar
+//           previousPage={() => this.previousPage()}
+//           nextPage={() => this.nextPage()}
+//         />
+//         <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
+//           {movies.map((item: any, index) => {
+//             return (
+//               <div className="my-5" key={index}>
+//                 <Card
+//                   key={index}
+//                   id={item.id}
+//                   title={item.original_title}
+//                   description={item.overview}
+//                   image={"https://image.tmdb.org/t/p/w500" + item.poster_path}
+//                 />
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
-  componentDidMount() {
-    this.getAllProducts();
-  }
+// export default App;
 
-  render() {
-    const { data } = this.state;
+// ---------------------------------------------------
 
-    return (
-      <div className={`w-screen h-screen bg-white`}>
-        <Navbar />
-        <div>
-          <button
-            className="w-40 h-10 bg-blue-500 text-white"
-            onClick={() => this.addProduct()}
-          >
-            Post Product
-          </button>
-        </div>
-        <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
-          {data.map((item: any, index) => {
-            return (
-              <div className="my-5" key={index}>
-                <Card
-                  key={index}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
-                  handleDetail={() => this.getProduct(item.id)}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
-}
+// interface StoreState {
+//   data: [];
+// }
 
-export default App;
+// export class App extends Component {
+//   state = {
+//     data: [],
+//   };
+
+//   // getAllProduct() {
+//   //   axios
+//   //     .get(`https://fakestoreapi.com/products`)
+//   //     .then((response) => {
+//   //       console.log("data: ", response.data);
+//   //       this.setState({ data: response.data });
+//   //     })
+//   //     .catch((error) => {
+//   //       console.log("error: ", error);
+//   //     });
+//   // }
+
+//   // getProduct(id: any) {
+//   //   axios
+//   //     .get(`https://fakestoreapi.com/products/${id}`)
+//   //     .then((response) => {
+//   //       console.log(response.data);
+//   //     })
+//   //     .catch((error) => {
+//   //       console.log(error);
+//   //     });
+//   // }
+
+//   // addProduct() {
+//   //   axios
+//   //     .post(
+//   //       `https://fakestoreapi.com/products`,
+//   //       {},
+//   //       {
+//   //         data: {
+//   //           title: "test product",
+//   //           price: 13.5,
+//   //           description: "lorem ipsum set",
+//   //           image: "https://i.pravatar.cc",
+//   //           category: "electronic",
+//   //         },
+//   //       }
+//   //     )
+//   //     .then((response) => {
+//   //       console.log(response.data);
+//   //     })
+//   //     .catch((error) => {
+//   //       console.log(error);
+//   //     });
+//   // }
+
+//   async getAllProducts() {
+//     await api
+//       .allProducts()
+//       .then((response) => {
+//         console.log(response.data);
+//         this.setState({ data: response.data });
+//       })
+//       .catch((error) => console.log(error));
+//   }
+
+// async getProduct(item: any) {
+//   await api
+//     .getProduct(item)
+//     .then((response) => {
+//       console.log(response.data);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+
+//   async addProduct() {
+//     await api
+//       .addProduct(
+//         "Clothes",
+//         "IDR 50,000",
+//         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI6-81i0Uk-5ldURjNpDwx_QgiF6hfl6YaXQ&usqp=CAU",
+//         "sweater"
+//       )
+//       .then((response) => {
+//         console.log(response.data);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }
+
+//   componentDidMount() {
+//     this.getAllProducts();
+//   }
+
+//   render() {
+//     const { data } = this.state;
+
+//     return (
+//       <div className={`w-screen h-screen bg-white`}>
+//         <Navbar />
+//         <div>
+//           <button
+//             className="w-40 h-10 bg-blue-500 text-white"
+//             onClick={() => this.addProduct()}
+//           >
+//             Post Product
+//           </button>
+//         </div>
+//         <div className="flex flex-wrap space-x-5 space-y-5 justify-center">
+//           {data.map((item: any, index) => {
+//             return (
+//               <div className="my-5" key={index}>
+//                 <Card
+//                   key={index}
+//                   id={item.id}
+//                   title={item.title}
+//                   description={item.description}
+//                   image={item.image}
+//                   handleDetail={() => this.getProduct(item.id)}
+//                 />
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// ---------------------------------------------------
 
 // --- EXAMPLE : NEWS API
 
@@ -275,6 +347,8 @@ export default App;
 // }
 
 // export default App;
+
+// ---------------------------------------------------
 
 // interface State {
 //   count: number;
