@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "../../withRouter";
 
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+
 interface HomeProps {
   navigate: any;
 }
@@ -16,16 +19,15 @@ class Home extends Component<HomeProps> {
 
   render() {
     return (
-      <div className="w-screen h-full">
-        <div className="m-10">
-          <button
-            className="bg-blue-500 text-white font-semibold"
-            onClick={() => this.nextPage()}
-          >
-            Next Page
-          </button>
-        </div>
-      </div>
+      <Layout>
+        <Navbar />
+        <button
+          className="bg-blue-500 text-white font-semibold"
+          onClick={() => this.nextPage()}
+        >
+          Next Page
+        </button>
+      </Layout>
     );
   }
 }
