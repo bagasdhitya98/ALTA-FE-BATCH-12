@@ -2,9 +2,10 @@ import React, { FC } from "react";
 
 interface NavbarProps {
   name?: string;
+  handleProfile?: React.MouseEventHandler;
 }
 
-const Navbar: FC<NavbarProps> = ({ name }) => {
+const Navbar: FC<NavbarProps> = ({ name, handleProfile }) => {
   return (
     <div className="navbar w-screen bg-white shadow-md z-10 top-0 sticky">
       <div className="flex-1 ml-7">
@@ -44,7 +45,10 @@ const Navbar: FC<NavbarProps> = ({ name }) => {
             </a>
           </li>
           <li>
-            <p className="text-alta-orange font-semibold">
+            <p
+              className="text-alta-orange font-semibold"
+              onClick={handleProfile}
+            >
               {name ? `Hi, Good Evening ${name}` : `You're not logged in`}
             </p>
           </li>

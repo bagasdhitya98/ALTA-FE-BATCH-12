@@ -1,27 +1,27 @@
-import React, { FC } from "react";
+import React, { useState } from "react";
 
-interface ModalProps {
-  id: string;
-  handleModal?: boolean;
-  handleClose?: React.MouseEventHandler;
+type ModalProps = {
+  isOpen: boolean;
+  isClose: React.MouseEventHandler;
+  title: string;
   children?: React.ReactNode;
-}
+};
 
-const Modal: FC<ModalProps> = ({ id, handleModal, handleClose, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, isClose, title, children }) => {
   return (
-    <>
-      {handleModal ? (
-        <div
-          id={id}
-          className="w-60 h-40 bg-white rounded-md shadow-md"
-          onClick={handleClose}
-        >
-          <div>{children}</div>
+    <div
+      className={`${
+        isOpen ? "fixed" : "hidden"
+      } inset-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50`}
+      onClick={isClose}
+    >
+      <div className="bg-white rounded-lg p-6">
+        <div className="flex justify-center items-center mb-4">
+          <h1 className="text-2xl font-semibold">{title}</h1>
         </div>
-      ) : (
-        <></>
-      )}
-    </>
+        <div>{children}</div>
+      </div>
+    </div>
   );
 };
 
