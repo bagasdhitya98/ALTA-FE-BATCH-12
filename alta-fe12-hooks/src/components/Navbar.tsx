@@ -13,21 +13,40 @@ const Navbar: FC<NavbarProps> = ({ name }) => {
           width={90}
           height={90}
         />
-        <a className="text-black ml-10 font-semibold">ALTA FRONTEND 12</a>
+        <p className="text-alta-space-cadet ml-10 font-semibold">
+          ALTA FRONTEND 12
+        </p>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <a href="">Home</a>
+            <a
+              className="text-alta-space-cadet hover:bg-alta-space-cadet hover:rounded-md hover:text-white"
+              href=""
+            >
+              Home
+            </a>
           </li>
           <li>
-            <a href="">About</a>
+            <a
+              className="text-alta-space-cadet hover:bg-alta-space-cadet hover:rounded-md hover:text-white"
+              href=""
+            >
+              About
+            </a>
           </li>
           <li>
-            <a href="">Experience</a>
+            <a
+              className="text-alta-space-cadet hover:bg-alta-space-cadet hover:rounded-md hover:text-white"
+              href=""
+            >
+              Experience
+            </a>
           </li>
           <li>
-            <p>{name ? `Hi, Good Evening ${name}` : `You're not logged in`}</p>
+            <p className="text-alta-orange font-semibold">
+              {name ? `Hi, Good Evening ${name}` : `You're not logged in`}
+            </p>
           </li>
         </ul>
       </div>
