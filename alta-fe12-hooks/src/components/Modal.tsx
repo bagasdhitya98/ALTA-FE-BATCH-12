@@ -17,7 +17,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, isClose, title, children }) => {
     >
       <div className="bg-white rounded-lg p-6">
         <div className="flex justify-center items-center mb-4">
-          <h1 className="text-2xl font-semibold">{title}</h1>
+          <h1 className="text-2xl text-alta-space-cadet font-semibold">
+            {title}
+          </h1>
         </div>
         <div>{children}</div>
       </div>
