@@ -13,7 +13,7 @@ const Login = () => {
   function handleLogin() {
     Swal.fire({
       title: "Success",
-      text: "Successfully Register",
+      text: "Successfully Login",
       confirmButtonText: "OK",
     });
     navigate(`/home/${username}`, {
