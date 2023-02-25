@@ -23,6 +23,24 @@ const Home = () => {
     });
   }
 
+  function handleRemoveSession() {
+    sessionStorage.removeItem("Username");
+    Swal.fire({
+      title: "Success",
+      text: "Success remove session!",
+      confirmButtonText: "OK",
+    });
+  }
+
+  function handleRemoveLocal() {
+    localStorage.removeItem("Username");
+    Swal.fire({
+      title: "Success",
+      text: "Success remove local storage!",
+      confirmButtonText: "OK",
+    });
+  }
+
   const Settings = () => {
     return (
       <div className="m-10 w-60 space-y-5">
@@ -53,7 +71,28 @@ const Home = () => {
           />
         </div>
       </div>
-
+      <div>
+        <h1>Username via session : {sessionStorage.getItem("Username")}</h1>
+        <h1>Password via session : {sessionStorage.getItem("Password")}</h1>
+        <div className="w-60">
+          <Button
+            name="remove-session"
+            label="Remove Session"
+            onClick={() => handleRemoveSession()}
+          />
+        </div>
+      </div>
+      <div>
+        <h1>Username via local storage : {localStorage.getItem("Username")}</h1>
+        <h1>Password via local storage : {localStorage.getItem("Password")}</h1>
+        <div className="w-60">
+          <Button
+            name="remove-local"
+            label="Remove Local Storage"
+            onClick={() => handleRemoveLocal()}
+          />
+        </div>
+      </div>
       <Modal
         title="Settings"
         children={<Settings />}

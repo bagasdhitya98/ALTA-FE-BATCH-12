@@ -18,13 +18,28 @@ const Login = () => {
       text: "Successfully Login",
       confirmButtonText: "OK",
     });
+    // --- set cookie storage
     setCookie("Username", username, { path: "/" });
     setCookie("Password", password, { path: "/" });
-    navigate(`/home/${username}`, {
-      state: {
-        username: username,
-      },
-    });
+    // --- set session storage
+    sessionStorage.setItem("Username", username);
+    sessionStorage.setItem("Password", password);
+    // --- set local storage
+    localStorage.setItem("Username", username);
+    localStorage.setItem("Password", password);
+    if (username === "" && password === "") {
+      Swal.fire({
+        title: "Failed",
+        text: "Failed to login, fill your username and password!",
+        confirmButtonText: "OK",
+      });
+    } else {
+      navigate(`/home/${username}`, {
+        state: {
+          username: username,
+        },
+      });
+    }
   }
 
   return (
