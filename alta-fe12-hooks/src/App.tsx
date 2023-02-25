@@ -4,6 +4,8 @@ import { CookiesProvider } from "react-cookie";
 
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Products from "./pages/products";
+import Detail from "./pages/detail";
 
 const App = () => {
   return (
@@ -12,6 +14,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home/:username" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/detail/:name" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>
