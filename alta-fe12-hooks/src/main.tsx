@@ -5,13 +5,16 @@ import "./index.css";
 
 import { CountProvider } from "./context/countContext";
 import { AuthProvider } from "./context/authContext";
+import { CartProvider } from "./context/cartContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <AuthProvider>
-      <CountProvider>
-        <App />
-      </CountProvider>
-    </AuthProvider>
+    <CartProvider>
+      <AuthProvider>
+        <CountProvider>
+          <App />
+        </CountProvider>
+      </AuthProvider>
+    </CartProvider>
   </React.StrictMode>
 );

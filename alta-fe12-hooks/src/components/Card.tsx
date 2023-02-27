@@ -5,7 +5,10 @@ interface PersonProps {
   title: string;
   description: string;
   image: string;
+  total?: any;
   handleDetail?: React.MouseEventHandler;
+  handleIncrement?: React.MouseEventHandler;
+  handleDecrement?: React.MouseEventHandler;
 }
 
 const Card: FC<PersonProps> = ({
@@ -13,7 +16,10 @@ const Card: FC<PersonProps> = ({
   title,
   description,
   image,
+  total,
   handleDetail,
+  handleIncrement,
+  handleDecrement,
 }) => {
   return (
     <div id={id} className="card w-96 bg-white shadow-xl position-absolute">
@@ -25,8 +31,17 @@ const Card: FC<PersonProps> = ({
         <p>{description}</p>
       </div>
       <div className="card-actions justify-end my-10 mr-10">
+        <div className="text-black font-semibold w-20 h-10">
+          Total : {total}
+        </div>
+        <button className="btn btn-primary" onClick={handleIncrement}>
+          +
+        </button>
+        <button className="btn btn-primary" onClick={handleDecrement}>
+          -
+        </button>
         <button className="btn btn-primary" onClick={handleDetail}>
-          Click Detail
+          Check Out
         </button>
       </div>
     </div>
