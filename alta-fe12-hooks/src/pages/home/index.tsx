@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
@@ -8,8 +8,11 @@ import Navbar from "../../components/Navbar";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 
+import { AuthContext } from "../../context/authContext";
+
 const Home = () => {
   const location = useLocation();
+  const { isLoggedIn } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [mode, setMode] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -60,39 +63,49 @@ const Home = () => {
         name={location?.state?.username}
         handleProfile={() => setShowModal(true)}
       />
-      <div>
-        <h1>Username via cookie : {cookies.Username}</h1>
-        <h1>Password via cookie : {cookies.Password}</h1>
-        <div className="w-60">
-          <Button
-            name="remove-cookie"
-            label="Remove Cookies"
-            onClick={() => handleRemoveCookie()}
-          />
-        </div>
-      </div>
-      <div>
-        <h1>Username via session : {sessionStorage.getItem("Username")}</h1>
-        <h1>Password via session : {sessionStorage.getItem("Password")}</h1>
-        <div className="w-60">
-          <Button
-            name="remove-session"
-            label="Remove Session"
-            onClick={() => handleRemoveSession()}
-          />
-        </div>
-      </div>
-      <div>
-        <h1>Username via local storage : {localStorage.getItem("Username")}</h1>
-        <h1>Password via local storage : {localStorage.getItem("Password")}</h1>
-        <div className="w-60">
-          <Button
-            name="remove-local"
-            label="Remove Local Storage"
-            onClick={() => handleRemoveLocal()}
-          />
-        </div>
-      </div>
+      {isLoggedIn ? (
+        <>
+          <div>
+            <h1>Username via cookie : {cookies.Username}</h1>
+            <h1>Password via cookie : {cookies.Password}</h1>
+            <div className="w-60">
+              <Button
+                name="remove-cookie"
+                label="Remove Cookies"
+                onClick={() => handleRemoveCookie()}
+              />
+            </div>
+          </div>
+          <div>
+            <h1>Username via session : {sessionStorage.getItem("Username")}</h1>
+            <h1>Password via session : {sessionStorage.getItem("Password")}</h1>
+            <div className="w-60">
+              <Button
+                name="remove-session"
+                label="Remove Session"
+                onClick={() => handleRemoveSession()}
+              />
+            </div>
+          </div>
+          <div>
+            <h1>
+              Username via local storage : {localStorage.getItem("Username")}
+            </h1>
+            <h1>
+              Password via local storage : {localStorage.getItem("Password")}
+            </h1>
+            <div className="w-60">
+              <Button
+                name="remove-local"
+                label="Remove Local Storage"
+                onClick={() => handleRemoveLocal()}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <h1>You're not Logged In</h1>
+      )}
       <Modal
         title="Settings"
         children={<Settings />}
