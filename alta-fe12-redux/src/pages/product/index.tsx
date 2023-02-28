@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { addItemToCart, Item, CartState } from "../../features/cartSlice"
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
+import Button from "../../components/Button";
 
 const Product = () => {
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const cart = useSelector((state: { cart: CartState }) => state.cart)
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -20,6 +28,20 @@ const Product = () => {
     }
   }
 
+  function handleAddToCart(item: any) {
+    const newItem: Item = {
+      id: item.id,
+      name: item.title,
+      price: item.price
+    }
+    dispatch(addItemToCart(newItem))
+    Swal.fire({
+      title: "Success",
+      text: "Successfully add to cart!",
+      confirmButtonText: "OK"
+    })
+  }
+
   useEffect(() => {
     getAllProduct()
   }, [])
@@ -28,6 +50,14 @@ const Product = () => {
   return (
     <Layout>
       <div className="m-10 text-black flex flex-wrap">
+        <div className="w-40 h-20">
+          <Button
+            label="Navigate to Detail"
+            name="navigate"
+            onClick={() => navigate('/detail')}
+          />
+        </div>
+
         {
           data && loading === true ?
             data.map((item: any, index) => {
@@ -40,6 +70,7 @@ const Product = () => {
                     description={item.description}
                     image={item.image}
                     price={item.price}
+                    handleDetail={() => handleAddToCart(item)}
                   />
                 </div>
 
