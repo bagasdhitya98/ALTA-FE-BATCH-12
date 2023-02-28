@@ -5,6 +5,7 @@ interface PersonProps {
   title: string;
   description: string;
   image: string;
+  price: number;
   total?: any;
   handleDetail?: React.MouseEventHandler;
   handleIncrement?: React.MouseEventHandler;
@@ -16,6 +17,7 @@ const Card: FC<PersonProps> = ({
   title,
   description,
   image,
+  price,
   total,
   handleDetail,
   handleIncrement,
@@ -30,10 +32,13 @@ const Card: FC<PersonProps> = ({
         <h2 className="card-title text-black font-semibold">{title}</h2>
         <p>{description}</p>
       </div>
+      <div className="text-black font-semibold m-10 h-10">
+        Price : ${price}
+      </div>
+      <div className="text-black font-semibold m-10 h-10">
+        Total Item : {total}
+      </div>
       <div className="card-actions justify-end my-10 mr-10">
-        <div className="text-black font-semibold w-20 h-10">
-          Total : {total}
-        </div>
         <button className="btn btn-primary" onClick={handleIncrement}>
           +
         </button>
