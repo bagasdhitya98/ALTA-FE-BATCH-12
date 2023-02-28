@@ -1,12 +1,14 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { CounterState, decrement, increment } from "../../features/counterSlice"
+import { useNavigate } from "react-router-dom"
 
 import Layout from '../../components/Layout'
 import Button from '../../components/Button'
 
 const Count = () => {
 
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const counter = useSelector((state: { counter: CounterState }) => state.counter)
 
@@ -30,7 +32,13 @@ const Count = () => {
                         onClick={() => dispatch(decrement())}
                     />
                 </div>
-
+                <div>
+                    <Button
+                        label='Navigate'
+                        name='navigate'
+                        onClick={() => navigate('/products')}
+                    />
+                </div>
             </div>
         </Layout>
     )
